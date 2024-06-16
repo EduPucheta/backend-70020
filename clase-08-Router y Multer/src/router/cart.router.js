@@ -10,9 +10,7 @@ router.post("/carts", async (req, res) => {
     res.status(201).json({ status: "ok", cart });
   } catch (error) {
     console.log(error);
-    res
-      .status(500)
-      .json({ status: "error", msg: "Error interno del servidor" });
+    res.status(500).json({ status: "error", msg: "Error interno del servidor" });
   }
 });
 
@@ -21,17 +19,12 @@ router.get("/carts/:cid", async (req, res) => {
     const { cid } = req.params;
 
     const cart = await cartManager.getCartById(cid);
-    if (!cart)
-      return res
-        .status(404)
-        .json({ status: "error", msg: "Carrito no encontrado" });
-
+    if(!cart) return res.status(404).json({status: "error", msg: "Carrito no encontrado"})
+      
     res.status(201).json({ status: "ok", cart });
   } catch (error) {
     console.log(error);
-    res
-      .status(500)
-      .json({ status: "error", msg: "Error interno del servidor" });
+    res.status(500).json({ status: "error", msg: "Error interno del servidor" });
   }
 });
 
@@ -45,9 +38,7 @@ router.post("/carts/:cid/product/:pid", async (req, res) => {
     res.status(201).json({ status: "ok", cart });
   } catch (error) {
     console.log(error);
-    res
-      .status(500)
-      .json({ status: "error", msg: "Error interno del servidor" });
+    res.status(500).json({ status: "error", msg: "Error interno del servidor" });
   }
 });
 

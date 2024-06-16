@@ -9,7 +9,7 @@ let products = [];
 const addProduct = async (product) => {
   try {
     await getProducts();
-
+    
     const { title, description, price, thumbnail, code, stock } = product;
 
     const newProduct = {
@@ -27,6 +27,7 @@ const addProduct = async (product) => {
     await fs.promises.writeFile(path, JSON.stringify(products));
 
     return newProduct;
+    
   } catch (error) {
     console.log(`${error}`);
   }
